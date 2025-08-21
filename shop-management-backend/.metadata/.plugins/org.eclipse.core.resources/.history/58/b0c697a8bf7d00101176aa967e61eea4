@@ -1,0 +1,17 @@
+spring.application.name=shop
+server.port=6062
+# ===============================
+# = DataSource Configuration
+# ===============================
+#spring.datasource.url=jdbc:postgresql://localhost:5432/shop_web
+spring.datasource.url=jdbc:postgresql://aws-postgres.c70owmmqe0r0.eu-north-1.rds.amazonaws.com:5432/FirstDb
+spring.datasource.username=postgres
+spring.datasource.password=postgres
+spring.datasource.driver-class-name=org.postgresql.Driver
+
+# ===============================
+# = JPA / Hibernate Configuration
+# ===============================
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
