@@ -1,7 +1,5 @@
 package com.management.shop.entity;
 
-import java.time.LocalDateTime;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,22 +10,21 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Entity
+@Table(name="ShopDetails_Entity")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Entity
-@Table(name="shop_customer")
-public class CustomerEntity {
+public class ShopDetailsEntity {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
+	private String username;
 	private String name;
-	private String email;
-	private String phone;
-	private Integer totalSpent;
-	private String status;
-	private LocalDateTime createdDate;
+	private String ownerName;
+	private String addresss;
+	private String gstNumber;
 
 }

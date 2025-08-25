@@ -1,5 +1,7 @@
 package com.management.shop.entity;
 
+import java.time.LocalDateTime;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Entity;
@@ -28,6 +30,8 @@ public class ProductEntity {
 	private String status;
 	private Integer price;
 	private Integer stock;
+	private LocalDateTime createdDate;
+	private Boolean active;
 	@JsonProperty("tax")
 	private Integer taxPercent;
 }

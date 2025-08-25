@@ -47,33 +47,29 @@ public class EmailSender {
 		System.out.println(response.getData());
 		return CompletableFuture.completedFuture(response.getData().toString());
 	}
-	 public CompletableFuture<String> sendEmail(String emailId, String orderId, String name, ByteArrayOutputStream pdfStream) throws MailjetException, MailjetSocketTimeoutException {
+	 public CompletableFuture<String> sendEmail(String emailId, String orderId, String name, byte[] pdfStream) throws MailjetException, MailjetSocketTimeoutException {
 	        // Assume you have a ByteArrayOutputStream named 'pdfStream'
 	        // This stream would contain the PDF data, for example, from a PDF generator library.
 	       // ByteArrayOutputStream pdfStream = new ByteArrayOutputStream();
 
 	        // **NOTE:** In a real-world scenario, you would write the PDF data to 'pdfStream' here.
 	        // For this example, we'll simulate a small PDF's content.
-	        try {
-	            pdfStream.write("This is a simulated PDF file content.".getBytes());
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
+			/*
+			 * try { pdfStream.write("This is a simulated PDF file content.".getBytes()); }
+			 * catch (IOException e) { e.printStackTrace(); }
+			 */
 
 	        String base64Content = "";
-	        try {
-	            // 1. Get the byte array from the ByteArrayOutputStream
-	            byte[] fileContent = pdfStream.toByteArray();
+			try {
+				// 1. Get the byte array from the ByteArrayOutputStream
+				// byte[] fileContent = pdfStream.toByteArray();
 
-	            // 2. Encode the byte array to a Base64 string
-	            base64Content = Base64.getEncoder().encodeToString(fileContent);
-	        } finally {
-	            try {
-	                pdfStream.close(); // Always close the stream
-	            } catch (IOException e) {
-	                e.printStackTrace();
-	            }
-	        }
+				// 2. Encode the byte array to a Base64 string
+				base64Content = Base64.getEncoder().encodeToString(pdfStream);
+			} catch (Exception e) {
+				e.printStackTrace();
+
+			}
 
 	        MailjetClient client;
 	        MailjetRequest request;
